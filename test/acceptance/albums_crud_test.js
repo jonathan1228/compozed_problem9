@@ -101,7 +101,7 @@ describe('Albums CRUD', function() {
           });
         });
     });
-    
+
     describe('Given i visit http://localhost:3000/albums/:id/edit', function(){
       it('then i should see an h2 header that says Edit plus name of album', function(){
         browser.get('/albums/'+myNewAlbum._id+'/edit');
@@ -116,6 +116,7 @@ describe('Albums CRUD', function() {
         element(by.name('genre')).all(by.tagName('option')).then(function(options) {
             options[3].click();
         });
+        // browser.sleep(2000)
         element(by.tagName('form')).all(by.name('stars')).get(4).click();
         element(by.id('submitBtn')).click().then(function() {
             browser.getCurrentUrl().then(function(url) {
@@ -129,11 +130,11 @@ describe('Albums CRUD', function() {
                 element(by.id('genre' + myNewAlbum._id)).getText().then(function(text){
                   expect(text).to.equal('Country')
                 });
-                browser.driver.sleep(5000);
+                // browser.driver.sleep(5000);
             });
         });
       });
     });
-    describe('Given')
+    // describe('Given')
 
 });
