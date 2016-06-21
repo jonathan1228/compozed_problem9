@@ -116,7 +116,7 @@ describe('Albums CRUD', function() {
         element(by.name('genre')).all(by.tagName('option')).then(function(options) {
             options[3].click();
         });
-        // browser.sleep(2000)
+        browser.sleep(2000)
         element(by.tagName('form')).all(by.name('stars')).get(4).click();
         element(by.id('submitBtn')).click().then(function() {
             browser.getCurrentUrl().then(function(url) {
