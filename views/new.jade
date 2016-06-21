@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div(border='1px solid black')
+    h2 Create Album
+    form(method='POST' action='/albums')
+      label(for='artist') Artist
+      input(type='text' name='artist')
+      br
+      label(for='album') Album
+      input(type='text' name='album')
+      br
+      label(for='genre')
+      select(name='genre')
+        option(value='Rock' label='Rock')
+        option(value='Metal' label='Metal')
+        option(value='Pop' label='Pop')
+        option(value='Country' label='Country')
+      br
+      label(for='stars') Star
+      input(type='radio' name='stars' value='1')
+      input(type='radio' name='stars' value='2')
+      input(type='radio' name='stars' value='3')
+      input(type='radio' name='stars' value='4')
+      input(type='radio' name='stars' value='5')
+      br
+      label(for='explicit') Contains Explicit Lyrics
+      input(type='checkbox' name='explicit')
+      br
+      input(id='submitBtn' type='submit' value='Create Album')
+    a(href='/albums') Cancel

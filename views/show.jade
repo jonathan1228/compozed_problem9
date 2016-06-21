@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h2 Albums
+  a(href='/albums/new') New Album
+
+  table
+    tr
+      th Genre
+      th Artist
+      th Album
+    for album in albums
+      tr
+        td(id='genre' + '#{album._id}') #{album.genre}
+        td(id='artist' + '#{album._id}') #{album.artist}
+        td(id='album' + '#{album._id}')
+          a(href='/albums/'+album['_id']) #{album.album}

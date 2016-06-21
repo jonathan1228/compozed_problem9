@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  div(border='1px solid black')
+    h2 Edit #{album.album}
+    form(method='POST' action='/albums/'+ album['_id'] + '?_method=PUT')
+      label(for='artist') Artist
+      input(type='text' name='artist' value=album.artist)
+      br
+      label(for='album') Album
+      input(type='text' name='album' value=album.album)
+      br
+
+      select(name='genre')
+        option(value='Rock' label='Rock' selected= album.genre == 'Rock')
+        option(value='Metal' label='Metal' selected= album.genre == 'Metal')
+        option(value='Pop' label='Pop' selected= album.genre == 'Pop')
+        option(value='Country' label='Country' selected= album.genre == 'Country')
+
+      br
+      label(for='stars') Star
+      input(type='radio' name='stars' value='1' checked= album.stars == 1)
+      input(type='radio' name='stars' value='2' checked= album.stars == 2)
+      input(type='radio' name='stars' value='3' checked= album.stars == 3)
+      input(type='radio' name='stars' value='4' checked= album.stars == 4)
+      input(type='radio' name='stars' value='5' checked= album.stars == 5)
+
+      br
+      label(for='explicit') Contains Explicit Lyrics
+      input(type='checkbox' name='explicit' checked= album.explicit == 'on')
+      br
+      input(id='submitBtn' type='submit' value='Edit Album')
+    a(href='/albums') Cancel

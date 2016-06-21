@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1 Showing Album: #{album.album}
+
+  h5 Genre: #{album.genre}
+  h5 Artist: #{album.artist}
+
+  a(href='/albums/' + album['_id']+'/edit') Edit
+
+  form(name="delete" method="POST" action='/albums/'+ album['_id'] + '?_method=DELETE')
+    input(type="submit" value="Delete")
